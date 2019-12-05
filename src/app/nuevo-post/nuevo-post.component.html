@@ -1,0 +1,50 @@
+<!--campos númericos acepte solo numeros-->
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0;
+        /* <-- Apparently some margin are still there even though it's hidden */
+    }
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+</style>
+
+<div class="container center_div">
+    <h1>Nuevo Usuario</h1>
+    <form class="form-signin">
+        <div class="col-md-4 col-md-offset-4">
+            <p>Ingresar datos en los siguientes campos:</p>
+            <label for="inputNombres" class="sr-only">Nombres</label>
+            <input [(ngModel)]="nombres" name="nombres" type="text" id="inputNombres" class="form-control"
+                placeholder="Nombres" required autofocus>
+            <label for="inputApellidos" class="sr-only">Apellidos</label>
+            <input [(ngModel)]="apellidos" name="apellidos" type="text" id="inputApellidos" class="form-control"
+                placeholder="Apellidos" required autofocus>
+            <label for="inputNit" class="sr-only">NIT</label>
+            <input [(ngModel)]="nit" name="nit" type="number" id="inputNit" class="form-control" placeholder="Nit"
+                required autofocus>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input [(ngModel)]="email" name="email" type="text" id="inputEmail" class="form-control"
+                placeholder="Email address" required autofocus>
+            <label for="inputTelefono" class="sr-only">Telefono</label>
+            <input [(ngModel)]="telefono" name="telefono" type="number" id="inputTelefono" class="form-control"
+                placeholder="Telefono" required autofocus>
+            <br>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Generar reporte
+                    <button type="button" class="btn btn-light" style="margin-left: 60px">Reporte</button>
+                </label>
+            </div>
+        </div>
+        <div class="btn-group mr-2" role="group">
+            <button type="reset" class="btn btn-secondary btn-sm" value="Limpiar">Limpiar</button>
+        </div>
+        <div class="text-center">
+            <button (click)="enviar()" type="button" class="btn btn-primary btn-lg">Enviar</button>
+        </div>
+    </form>
+</div>

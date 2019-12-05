@@ -1,0 +1,45 @@
+<div class="row">
+    <div *ngFor="let post of posts" class="col-6">
+        <div class="jumbotron">
+            <h1 class="display-4">{{post.nombres}}</h1>
+            <p class="lead">{{post.apellidos}}</p>
+            <p class="lead">{{post.nit}}, {{post.email}}</p>
+            <hr class="my-4">
+            <h5>Comentarios:</h5>
+            <strong *ngIf="post.comentarios.length == 0">No hay comentarios</strong>
+            <ul *ngIf="post.comentarios.length > 0">
+                <li *ngFor="let c of post.comentarios">
+                    <p>{{c.comentario}}</p>
+                    <p><small><strong>Publicado por: {{c.nombres}}, {{c.apellidos}}</strong></small></p>
+                    <p><small>{{c.fecha_creacion | date}}</small></p>
+                </li>
+            </ul>
+            <br>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Validar
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Que desea hacer?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
